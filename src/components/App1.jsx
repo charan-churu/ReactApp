@@ -30,14 +30,13 @@ const App1 = () => {
   const handleEndClick = () => {
     if (queue.length === 0) {
       setShowSuccessPopup(true);
-      alert(`Success! The queue is empty.`)
     } else {
       const checkQueueEmpty = setInterval(() => {
         if (queue.length === 0) {
           setShowSuccessPopup(true);
-          alert(`Success! The queue is empty.`)
           clearInterval(checkQueueEmpty);
         }
+        if(queue.length===0) setShowSuccessPopup(true)
       }, 1000);
     }
   };
@@ -78,7 +77,7 @@ const App1 = () => {
             <button onClick={handleEndClick} className='End'>End</button>
             <button onClick={handleReset} className='Reset'>Reset</button>
           </div>
-          {showSuccessPopup}
+          {showSuccessPopup && <div> Success! The queue is empty.</div> }
       </div>
       );
 }
