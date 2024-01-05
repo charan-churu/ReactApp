@@ -77,7 +77,7 @@ const App1 = () => {
             <button onClick={handleEndClick} className='End'>End</button>
             <button onClick={handleReset} className='Reset'>Reset</button>
           </div>
-          {showSuccessPopup && <div> Success! The queue is empty.</div> }
+          {showSuccessPopup && <div className='success'> Success! The queue is empty.</div> }
       </div>
       );
 }
