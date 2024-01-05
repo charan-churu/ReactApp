@@ -5,22 +5,22 @@ const App1 = () => {
   const [inputText, setInputText] = useState('');
   const [queue, setQueue] = useState([]);
   const [displayedText, setDisplayedText] = useState([]);
-  const [showSuccessPopup, setShowSuccessPopup] = useState();
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   useEffect(() => {
-    if(queue.length > 0) setShowSuccessPopup(false)
-    const interval = setInterval(() => {
+   const interval = setInterval(() => {
       if (queue.length > 0) {
         setDisplayedText(prevDisplayedText => [...prevDisplayedText, queue[0]]);
         setQueue(queue.slice(1));
       }
-      else{
+      else if(displayedText.length>0){
         setShowSuccessPopup(true)
       }
     }, 10000);
-
+    if(queue.length>0) setShowSuccessPopup(false)
     return () => clearInterval(interval);
   }, [queue]);
+
 
   const handleInputChange = (e) => {
     setInputText(e.target.value);
@@ -41,7 +41,7 @@ const App1 = () => {
     setInputText('');
     setQueue([]);
     setDisplayedText([]);
-    setShowSuccessPopup();
+    setShowSuccessPopup(false);
   };
 
   return (
