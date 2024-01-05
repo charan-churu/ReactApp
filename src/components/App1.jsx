@@ -5,9 +5,10 @@ const App1 = () => {
   const [inputText, setInputText] = useState('');
   const [queue, setQueue] = useState([]);
   const [displayedText, setDisplayedText] = useState([]);
-  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState();
 
   useEffect(() => {
+    if(queue.length > 0) setShowSuccessPopup(false)
     const interval = setInterval(() => {
       if (queue.length > 0) {
         setDisplayedText(prevDisplayedText => [...prevDisplayedText, queue[0]]);
@@ -40,7 +41,7 @@ const App1 = () => {
     setInputText('');
     setQueue([]);
     setDisplayedText([]);
-    setShowSuccessPopup(false);
+    setShowSuccessPopup();
   };
 
   return (
