@@ -33,15 +33,7 @@ const App1 = () => {
   const handleEndClick = () => {
     if (queue.length === 0) {
       setShowSuccessPopup(true);
-    } else {
-      const checkQueueEmpty = setInterval(() => {
-        if (queue.length === 0) {
-          setShowSuccessPopup(true);
-          clearInterval(checkQueueEmpty);
-        }
-        
-      }, 1000);
-    }
+    } 
   };
 
   const handleReset = () => {
