@@ -13,6 +13,9 @@ const App1 = () => {
         setDisplayedText(prevDisplayedText => [...prevDisplayedText, queue[0]]);
         setQueue(queue.slice(1));
       }
+      else{
+        setShowSuccessPopup(true)
+      }
     }, 10000);
 
     return () => clearInterval(interval);
@@ -36,7 +39,7 @@ const App1 = () => {
           setShowSuccessPopup(true);
           clearInterval(checkQueueEmpty);
         }
-        if(queue.length===0) setShowSuccessPopup(true)
+        
       }, 1000);
     }
   };
